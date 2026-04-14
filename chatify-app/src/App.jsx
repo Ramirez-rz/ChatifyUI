@@ -24,8 +24,6 @@ function App() {
 
   return (
     <>
-    <h1>Chatify</h1>
-    <ManageConnnection/>
     <div className="app-layout">
       <div className="left">
         <Channels/>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { socket } from '../../socket';
+import './MyForm.css'
 
 function MyForm() {
 
@@ -18,8 +19,8 @@ function MyForm() {
   return (
     <div>
       <input type="text" name="message" value={message}
-      onChange={handleOnchange} />
-      <button onClick={handleClick}> Send</button>
+      onChange={handleOnchange} className='barra'/>
+      <button className="btn-send" onClick={handleClick}> Send</button>
     </div>
   )
 }

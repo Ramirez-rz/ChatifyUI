@@ -1,0 +1,21 @@
+
+
+.chats-container{
+    width: 700px;
+    height: 600px;
+    background-color: rgba(47, 122, 0, 0.281);
+}
+
+.chats{
+        margin-left: 10px;
+    margin-top: 15px;
+}
+
+.chats-container p{
+    color: #d5ddd2;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: flex-start;
+    
+}

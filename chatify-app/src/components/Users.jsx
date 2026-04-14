@@ -1,4 +1,5 @@
 import React from 'react'
+import './Channels.css'
 
 function Users() {
   return (
@@ -7,8 +8,8 @@ function Users() {
             <p> En linea - 20</p>
 
 
-            <div className='chats'> hugo</div>
-            <div className='chats'> profe</div>
+            <div className='chats'> WhackyPage</div>
+            <div className='chats'> SlimeGamer</div>
         </div>
     </div>
   )
