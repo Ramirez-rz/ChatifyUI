@@ -22,10 +22,12 @@ function Chats() {
   return (
     <div className='chats-container'>
       <div className='chats'>
-        <p> # fortnite</p>
+        <p className='chat-title'># fortnite</p>
+        <div className='mensajes'>
           {message?.map((m) => (
             <p>{m}</p>
           ))}
+        </div>
       </div>
     </div>
   )
