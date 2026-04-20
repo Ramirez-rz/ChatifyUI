@@ -23,6 +23,7 @@ function MyForm() {
       <button className="btn-send" onClick={handleClick}> Send</button>
     </div>
   )
+  
 }
 
 export default MyForm

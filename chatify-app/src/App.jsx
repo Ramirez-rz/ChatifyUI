@@ -6,6 +6,7 @@ import MyForm from './components/MyForm'
 import Channels from './components/Channels' 
 import Chats from './components/Chats'
 import Users from './components/Users'
+import { Socket } from 'socket.io-client'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +20,10 @@ function App() {
     //}
 
     socket.on('connect',onConnnect)
+    return () => {
+      socket.off("disconnect")
+      socket.off("connect", onConnnect)
+    }
     //socket.on('disconnect',onDisconnect)
   },[])
 
