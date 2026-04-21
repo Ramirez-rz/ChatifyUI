@@ -37,7 +37,7 @@ function App() {
   return (
     <div className="app">
       <div className="sidebar place-items-center place-content-center">
-        <div className='bg-white w-[90%] h-[90%] rounded-xl'>
+        <div className='bg-white w-[90%] h-[90%] rounded-xl shadow-xl'>
 
         </div>
       </div>
@@ -45,7 +45,7 @@ function App() {
       <div className="chat-section">
         <div className="chat-box">
           <div className="chat-header">
-            <h2>Chat</h2>
+            <h2>QUEONDA</h2>
             <span className={isConnected ? 'status connected' : 'status disconnected'}>
               {isConnected ? 'Connected' : 'Disconnected'}
             </span>
@@ -53,7 +53,7 @@ function App() {
 
           <div className="messages">
             {messages.length === 0 ? (
-              <p className="empty-text">No messages yet</p>
+              <p className="empty-text">Ghosteado</p>
             ) : (
               messages.map((msg, i) => (
                 <div key={i} className="message">
@@ -70,7 +70,7 @@ function App() {
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Escribe mensaje"
             />
-            <button type="submit">Send</button>
+            <button type="submit">Enviar</button>
           </form>
         </div>
       </div>
