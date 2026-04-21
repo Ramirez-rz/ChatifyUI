@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { socket } from './socket'
+import './App.css'
 
 function App() {
   const [message, setMessage] = useState('')
@@ -7,17 +8,20 @@ function App() {
   const [isConnected, setIsConnected] = useState(socket.connected)
 
   useEffect(() => {
-    socket.on('connect', () => setIsConnected(true))
-    socket.on('disconnect', () => setIsConnected(false))
-
-    socket.on('chat message', (msg) => {
+    const onConnect = () => setIsConnected(true)
+    const onDisconnect = () => setIsConnected(false)
+    const onMessage = (msg) => {
       setMessages((prev) => [...prev, msg])
-    })
+    }
+
+    socket.on('connect', onConnect)
+    socket.on('disconnect', onDisconnect)
+    socket.on('chat message', onMessage)
 
     return () => {
-      socket.off('connect')
-      socket.off('disconnect')
-      socket.off('chat message')
+      socket.off('connect', onConnect)
+      socket.off('disconnect', onDisconnect)
+      socket.off('chat message', onMessage)
     }
   }, [])
 
@@ -31,23 +35,45 @@ function App() {
   }
 
   return (
-    <div style={{ padding: 20 }}>
-      <h2>{isConnected ? 'Connected' :  'Disconnected'}</h2>
+    <div className="app">
+      <div className="sidebar place-items-center place-content-center">
+        <div className='bg-white w-[90%] h-[90%] rounded-xl'>
 
-      <div style={{ marginBottom: 20 }}>
-        {messages.map((msg, i) => (
-          <div key={i}>{msg}</div>
-        ))}
+        </div>
       </div>
 
-      <form onSubmit={sendMessage}>
-        <input
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Escribe mensaje"
-        />
-        <button type="submit">Send</button>
-      </form>
+      <div className="chat-section">
+        <div className="chat-box">
+          <div className="chat-header">
+            <h2>Chat</h2>
+            <span className={isConnected ? 'status connected' : 'status disconnected'}>
+              {isConnected ? 'Connected' : 'Disconnected'}
+            </span>
+          </div>
+
+          <div className="messages">
+            {messages.length === 0 ? (
+              <p className="empty-text">No messages yet</p>
+            ) : (
+              messages.map((msg, i) => (
+                <div key={i} className="message">
+                  {msg}
+                </div>
+              ))
+            )}
+          </div>
+
+          <form className="message-form" onSubmit={sendMessage}>
+            <input
+              type="text"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Escribe mensaje"
+            />
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
     </div>
   )
 }
