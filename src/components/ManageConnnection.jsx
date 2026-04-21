@@ -1,12 +1,9 @@
 function ManageConnnection({ connected, onConnect, onDisconnect }) {
   return (
-    <div className="connection-dock">
-      <div className="connection-dock__status">
-        <span className={`connection-dot ${connected ? 'is-online' : ''}`} />
-        <span>{connected ? 'Live relay active' : 'Relay paused'}</span>
-      </div>
+    <div className="connection">
+      <span>{connected ? 'Conectado' : 'Desconectado'}</span>
 
-      <div className="connection-dock__actions">
+      <div className="connection-buttons">
         <button type="button" onClick={onConnect}>
           Connect
         </button>

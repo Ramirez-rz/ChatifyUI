@@ -1,80 +1,15 @@
-.composer {
+.form {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  margin: 10px 24px 0;
-  padding: 14px 16px;
-  border-radius: 34px;
-  border: 1px solid rgba(96, 255, 171, 0.1);
-  background: rgba(20, 31, 23, 0.96);
-}
-
-.composer__icon,
-.composer__tool,
-.composer__send {
-  border: 0;
-  cursor: pointer;
-}
-
-.composer__icon,
-.composer__tool {
-  width: 42px;
-  height: 42px;
-  border-radius: 16px;
-  background: rgba(10, 18, 12, 0.92);
-  color: var(--muted);
-}
-
-.composer__input {
-  flex: 1;
-  min-width: 0;
-  border: 0;
-  background: transparent;
-  color: var(--text-primary);
-  font-size: 1.06rem;
-  outline: none;
-}
-
-.composer__input::placeholder {
-  color: rgba(214, 225, 217, 0.26);
-}
-
-.composer__actions {
-  display: flex;
-  align-items: center;
   gap: 10px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
 }
 
-.composer__send {
-  padding: 0 20px;
-  height: 44px;
-  border-radius: 16px;
-  background: linear-gradient(180deg, rgba(87, 255, 174, 0.98), rgba(41, 219, 129, 0.98));
-  color: #03200e;
-  font-weight: 800;
+.form input {
+  flex: 1;
+  padding: 10px;
 }
 
-.composer__send:disabled,
-.composer__input:disabled {
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-@media (max-width: 860px) {
-  .composer {
-    margin: 0 12px;
-    padding: 12px;
-    gap: 10px;
-    border-radius: 26px;
-  }
-
-  .composer__actions {
-    gap: 8px;
-  }
-
-  .composer__tool:nth-child(2),
-  .composer__tool:nth-child(3),
-  .composer__send {
-    display: none;
-  }
+.form button {
+  padding: 10px 16px;
 }
